@@ -229,7 +229,6 @@ public class PlayerStone : MonoBehaviour {
             return;
         }
 
-
         this.justGotClicked = true;
 
         // Where should we end up ? 
@@ -327,6 +326,9 @@ public class PlayerStone : MonoBehaviour {
     }
 
     bool CanLegallyMoveTo (Tile destinationTile) {
+        if (this.scored) {
+            return false;
+        }
         if (destinationTile == null) {
             // NOTE: A null tile means we are overshooting the victory roll
             return false;

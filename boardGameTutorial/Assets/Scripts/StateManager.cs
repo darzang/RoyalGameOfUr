@@ -12,7 +12,6 @@ public class StateManager : MonoBehaviour {
     // TODO : little text appearing in the bottom telling us the change has been done in options
     // TODO : Highlighting on options button in the pause menu 
 
-    int firstRun = 0;
     void Awake () {
         DontDestroyOnLoad (this);
     }
