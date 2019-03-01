@@ -10,8 +10,6 @@ public class CurrentPlayerDisplay : MonoBehaviour {
         theStateManager = GameObject.FindObjectOfType<StateManager>();
         playerText = GetComponent<Text>();
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
-        p1victory = GameObject.Find("P1Victory").GetComponent<Text>();
-        p2victory = GameObject.Find("P2Victory").GetComponent<Text>();
     }
 
     Text playerText;
@@ -26,8 +24,6 @@ public class CurrentPlayerDisplay : MonoBehaviour {
 	void Update () {
 
 		playerText.text = "Player: " + numberWords[theStateManager.CurrentPlayerId];
-        p1victory.text = " P1 : " + PlayerPrefs.GetInt("p1victory");
-        p2victory.text = " P2 : " + PlayerPrefs.GetInt("p2victory");
 
         if (theStateManager.CurrentPlayerId == 0)
         {
