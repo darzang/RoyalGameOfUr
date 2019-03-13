@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour {
+
     // TODO : 3 AI 
     // TODO : language option
     // TODO : Create a cool intro ? 
     // TODO : cool animation for dices 
     // TODO : little text appearing in the bottom telling us the change has been done in options
     // TODO : Highlighting on options button in the pause menu 
+    // TODO : Find out why nolegalmoves pop up appears in a blink
 
     void Awake () {
         DontDestroyOnLoad (this);
@@ -26,7 +28,7 @@ public class StateManager : MonoBehaviour {
             PlayerAIs[1] = null;
             Debug.Log ("Two human players");
 
-        } else {
+        } else if (PlayerPrefs.GetString ("gameMode") == "singlePlayer") {
             Debug.Log ("One Human one AI");
             switch (PlayerPrefs.GetString ("difficulty")) {
                 case "easy":
@@ -46,6 +48,8 @@ public class StateManager : MonoBehaviour {
                     break;
 
             }
+        }else{
+            // The 2 AI against will come here 
         }
 
         UICanvas.enabled = true;
